@@ -33,5 +33,10 @@ namespace DependencyInjection1
             this.sampleService = sampleService;
             this.settings = settings.Value;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(this.sampleService.GetCurrentDate());
+        }
     }
 }
