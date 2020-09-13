@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Extensions.Options;
+using DependencyInjection1.Models;
+using DependencyInjection1.Services;
 
 namespace DependencyInjection1
 {
@@ -20,9 +23,15 @@ namespace DependencyInjection1
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ISampleService sampleService;
+        private readonly AppSettings settings;
+
+        public MainWindow(ISampleService sampleService, IOptions<AppSettings> settings)
         {
             InitializeComponent();
+
+            this.sampleService = sampleService;
+            this.settings = settings.Value;
         }
     }
 }
